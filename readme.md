@@ -8,7 +8,7 @@ xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.
 xset s noblank     # don't blank the video device
 @unclutter -idle 0.1 -root # hides mouse cursor
-@xscreensaver -no-splash # Optional, if for some reason the screen go blank anyway
+@xscreensaver -no-splash # Optional, if for some reason the screen goes blank anyway
 ```
 - edit `/etc/lightdm/lightdm.conf`
 ```

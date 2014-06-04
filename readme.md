@@ -2,12 +2,12 @@
 
 - Script that checks if wifi is connected, if not restarts wifi: http://rpi.tnet.com/project/scripts/wifi_check
 - Install unclutter: `apt-get install unclutter`
-- edit `/etc/lightdm/lightdm.conf`
+- Add to `/etc/lightdm/lightdm.conf` in the correct section:
 ```
 [SeatDefaults]
 xserver-command=X -s 0 -dpms
 ```
-- edit `/etc/xdg/lxsession/LXDE/autostart`
+- Replace `/etc/xdg/lxsession/LXDE/autostart` contents with:
 ```sh
 xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.

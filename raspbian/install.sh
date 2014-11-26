@@ -17,8 +17,13 @@ mkdir -p  ~/.config/autostart
 cp dash.desktop ~/.config/autostart
 
 if command -v uuidgen >/dev/null 2>&1; then
-  echo "Installing Dashy dependencies"
+  echo "Installing Dashy dependency: uuid-runtime"
   sudo apt-get install uuid-runtime
+fi
+
+if command -v unclutter >/dev/null 2>&1; then
+  echo "Installing Dashy dependency: unclutter"
+  sudo apt-get install unclutter
 fi
 
 echo "Done."

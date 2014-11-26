@@ -13,5 +13,13 @@ xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.
 xset s noblank     # don't blank the video device
 @unclutter -idle 0.1 -root # hides mouse cursor
-#@xscreensaver -no-splash # Optional, enable this if the screen is still going blank
+```
+
+## Dependencises
+sudo apt-get install uuid-runtime
+
+## Installation
+```bash
+mkdir ~/.config/autostart
+cp dash.desktop ~/.config/autostart
 ```

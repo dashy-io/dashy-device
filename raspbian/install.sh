@@ -12,7 +12,7 @@ fi
 echo "Configuring LXDE to hide the mouse cursor and disable screen blanking..."
 sudo cp autostart /etc/xdg/lxsession/LXDE/autostart
 
-echo "Installing Dashboard autostart..."
+echo "Installing Browser autostart..."
 mkdir -p  ~/.config/autostart
 cp dash.desktop ~/.config/autostart
 

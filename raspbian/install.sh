@@ -16,4 +16,9 @@ echo "Installing Dashboard autostart..."
 mkdir -p  ~/.config/autostart
 cp dash.desktop ~/.config/autostart
 
+if command -v uuidgen >/dev/null 2>&1; then
+  echo "Installing Dashy dependencies"
+  sudo apt-get install uuid-runtime
+fi
+
 echo "Done."

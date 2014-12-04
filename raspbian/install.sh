@@ -9,12 +9,8 @@ if [ ! -f /etc/xdg/lxsession/LXDE/autostart.ori ]; then
   echo "Backing up original LXDE autostart config to /etc/xdg/lxsession/LXDE/autostart.ori"
   sudo cp /etc/xdg/lxsession/LXDE/autostart /etc/xdg/lxsession/LXDE/autostart.ori
 fi
-echo "Configuring LXDE to hide the mouse cursor and disable screen blanking..."
+echo "Configuring LXDE to hide the mouse cursor, disable screen blanking and start the browser..."
 sudo cp autostart /etc/xdg/lxsession/LXDE/autostart
-
-echo "Installing Browser autostart..."
-mkdir -p  ~/.config/autostart
-cp dash.desktop ~/.config/autostart
 
 if [ ! command -v uuidgen >/dev/null 2>&1 ]; then
   echo "Installing Dashy dependency: uuid-runtime"

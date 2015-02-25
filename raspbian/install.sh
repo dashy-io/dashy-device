@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
   echo "Backing up original lightdm config to /etc/lightdm/lightdm.conf.ori"
   sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.ori

@@ -20,10 +20,11 @@ if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
 	echo "Backing up original lightdm config to /etc/lightdm/lightdm.conf.ori"
 	sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.ori
 fi
-echo "Configuring lightdm to disable screen blanking..."
+echo "Configuring lightdm to disable screen blanking"
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 
 if [ ! -f ~/.config/autostart/dashy.desktop ]; then
+	echo "Creating autostart desktop entry"
 	ln -s dashy.desktop ~/.config/autostart/dashy.desktop
 fi
 

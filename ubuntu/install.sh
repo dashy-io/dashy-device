@@ -24,7 +24,7 @@ echo "Configuring lightdm to disable screen blanking..."
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 
 if [ ! -f ~/.config/autostart/dashy.desktop ]; then
-	cp dashy.desktop ~/.config/autostart
+	ln -s ~/.config/autostart/dashy.desktop ./dashy.desktop
 fi
 
 # sudo apt install --no-install-recommends openbox

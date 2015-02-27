@@ -16,10 +16,15 @@ fi
 
 if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
 	echo "Backing up original lightdm config to /etc/lightdm/lightdm.conf.ori"
-	sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.ori
+	sudo mv /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.ori
 fi
-echo "Configuring lightdm to disable screen blanking"
-sudo cp lightdm.conf /etc/lightdm/lightdm.conf
+
+if [ ! -f /etc/lightdm/lightdm.conf ]; then
+	echo "Configuring lightdm to autologin and disable screen blanking"
+	sudo cp lightdm.conf /etc/lightdm/lightdm.conf
+	## sudo ln -s "$(pwd)/lightdm.conf" /etc/lightdm/lightdm.conf
+	echo "autologin-user=${USER}" >> /etc/lightdm/lightdm.conf
+fi
 
 if [ ! -f ~/.config/autostart/dashy.desktop ]; then
 	echo "Creating autostart desktop entry"

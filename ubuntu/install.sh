@@ -1,5 +1,3 @@
-sudo apt-get update
-
 if [ ! command -v google-chrome-stable >/dev/null 2>&1 ]; then
 	echo "Installing Dashy dependency: google-chrome-stable"
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 

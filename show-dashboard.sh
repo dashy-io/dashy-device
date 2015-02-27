@@ -56,7 +56,7 @@ done
 printf "OK\r\n"
 
 echo "Automatically hiding the mouse cursor"
-unclutter -idle 0.5
+unclutter -idle 0.5 &
 
 if command -v google-chrome-stable >/dev/null 2>&1; then
   echo "Running google-chrome-stable on primary screen"

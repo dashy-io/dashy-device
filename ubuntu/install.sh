@@ -23,7 +23,7 @@ sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 
 if [ ! -f ~/.config/autostart/dashy.desktop ]; then
 	echo "Creating autostart desktop entry"
-	ln -s "$(pwd)/dashy.desktop" "~/.config/autostart/dashy.desktop"
+	ln -s "$(pwd)/dashy.desktop" ~/.config/autostart/dashy.desktop
 fi
 
 # sudo apt install --no-install-recommends openbox

@@ -1,7 +1,7 @@
 sudo apt-get update
 
 if [ ! command -v google-chrome-stable >/dev/null 2>&1 ]; then
-	echo "Installing Dashy dependency: uuid-runtime"
+	echo "Installing Dashy dependency: google-chrome-stable"
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 	sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 	sudo apt-get update
@@ -22,6 +22,10 @@ if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
 fi
 echo "Configuring lightdm to disable screen blanking..."
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
+
+if [ ! -f ~/.config/autostart/dashy.desktop ]; then
+	cp dashy.desktop ~/.config/autostart
+fi
 
 # sudo apt install --no-install-recommends openbox
 

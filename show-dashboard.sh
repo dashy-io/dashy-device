@@ -56,7 +56,7 @@ if command -v google-chrome-stable >/dev/null 2>&1; then
       google-chrome-stable --incognito --no-first-run --start-fullscreen --window-position=${PRIMARY_DISPLAY_WIDTH},0 --user-data-dir="$(mktemp -d)" ${DASHBOARD2_URL} &
     else
       echo "Running google-chrome-stable on secondary screen (vertical layout)"
-      google-chrome-stable --incognito --no-first-run --start-fullscreen --window-position=$0,{PRIMARY_DISPLAY_HEIGHT} --user-data-dir="$(mktemp -d)" ${DASHBOARD2_URL} &
+      google-chrome-stable --incognito --no-first-run --start-fullscreen --window-position=0,${PRIMARY_DISPLAY_HEIGHT} --user-data-dir="$(mktemp -d)" ${DASHBOARD2_URL} &
     fi
   fi
   exit 0

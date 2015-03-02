@@ -1,4 +1,5 @@
-# Useful stuff for setting up a dashboard on device (incl. Raspberry Pi)
+# dashy-device
+### Scripts to make a Dashy Kiosk
 
 ## Installation Raspbian v2014-12-26 or newer
 See [raspbian/README.md](raspbian/README.md)

@@ -22,13 +22,13 @@ fi
 echo "Configuring lightdm to autologin and disable screen blanking"
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 
-if [ ! -f /etc/xdg/lxsession/LXDE/autostart.ori ]; then
-	echo "Backing up original LXDE autostart config to /etc/xdg/lxsession/LXDE/autostart.ori"
-	sudo mv /etc/xdg/lxsession/LXDE/autostart /etc/xdg/lxsession/LXDE/autostart.ori
+if [ ! -f /etc/xdg/lxsession/LXDE-pi/autostart.ori ]; then
+	echo "Backing up original LXDE-pi autostart config to /etc/xdg/lxsession/LXDE-pi/autostart.ori"
+	sudo mv /etc/xdg/lxsession/LXDE-pi/autostart /etc/xdg/lxsession/LXDE-pi/autostart.ori
 fi
 
-echo "Configuring LXDE to hide the mouse cursor, disable screen blanking and start the browser..."
-sudo cp autostart /etc/xdg/lxsession/LXDE/autostart
+echo "Configuring LXDE-pi to hide the mouse cursor, disable screen blanking and start the browser..."
+sudo cp autostart /etc/xdg/lxsession/LXDE-pi/autostart
 
 echo "Installing Dashy dependency: unclutter"
 sudo apt-get --yes install unclutter

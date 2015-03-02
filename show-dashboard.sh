@@ -62,7 +62,7 @@ command -v chromium > /dev/null 2>&1 && BROWSER=chromium
 command -v google-chrome-stable > /dev/null 2>&1 && BROWSER=google-chrome-stable
 if [ -n "$BROWSER" ]; then
   echo "Running ${BROWSER} on primary screen"
-  google-chrome-stable --incognito --no-first-run --start-fullscreen --window-position=0,0 --user-data-dir="$(mktemp -d)" ${DASHBOARD1_URL} 2> /dev/null &
+  ${BROWSER} --incognito --no-first-run --start-fullscreen --window-position=0,0 --user-data-dir="$(mktemp -d)" ${DASHBOARD1_URL} 2> /dev/null &
   if [ -n "$DASHBOARD2_ID" ]; then
     if [ "$DISPOSITION" == "horizontal" ]; then
       WINDOW_POSITION=${PRIMARY_DISPLAY_WIDTH},0
@@ -70,7 +70,7 @@ if [ -n "$BROWSER" ]; then
       WINDOW_POSITION=0,${PRIMARY_DISPLAY_HEIGHT}
     fi
     echo "Running ${BROWSER} on secondary screen (${WINDOW_POSITION})"
-    google-chrome-stable --incognito --no-first-run --start-fullscreen --window-position=${WINDOW_POSITION} --user-data-dir="$(mktemp -d)" ${DASHBOARD2_URL} 2> /dev/null &
+    ${BROWSER} --incognito --no-first-run --start-fullscreen --window-position=${WINDOW_POSITION} --user-data-dir="$(mktemp -d)" ${DASHBOARD2_URL} 2> /dev/null &
   fi
   exit 0
 fi

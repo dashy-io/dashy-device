@@ -37,7 +37,7 @@ fi
 
 if [ ! command -v chromium >/dev/null 2>&1 ]; then
 	echo "Installing Dashy dependency: chromium"
-	sudo apt-get install chroumium
+	sudo apt-get install chromium
 fi
 
 echo "Done."

@@ -3,9 +3,8 @@
 
 # SSH
 `ssh` server is installed by default.
-
-user: pi
-password: raspberry
+- user: pi
+- password: raspberry
 
 # Internal DNS
 Raspbian is setting resolv.conf to google's DNS servers ignoring DHCP.

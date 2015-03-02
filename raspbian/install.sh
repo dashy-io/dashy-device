@@ -8,7 +8,7 @@ sudo apt-get upgrade
 sudo apt-get dist-upgrade
 
 echo "Updating firmware"
-rpi-update
+sudo rpi-update
 
 if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
 	echo "Backing up original lightdm config to /etc/lightdm/lightdm.conf.ori"

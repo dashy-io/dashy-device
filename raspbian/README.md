@@ -3,6 +3,7 @@
 
 # SSH
 `ssh` server is installed by default.
+
 user: pi
 password: raspberry
 

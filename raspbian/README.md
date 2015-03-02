@@ -1,5 +1,8 @@
-# Update Firmware
-`rpi-update"
+## Installation Raspbian, aka How to make a Dashy Kiosk
+- Clone this project on the Raspberry PI to the home directory
+- Run the script `raspbian/install.sh`
+- If using wifi, install the script that checks if wifi is connected and if not restarts wifi: http://rpi.tnet.com/project/scripts/wifi_check
+- Reboot the Raspberry PI `sudo reboot`
 
 # SSH
 `ssh` server is installed by default.

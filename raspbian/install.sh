@@ -3,7 +3,7 @@
 echo "Installing on Raspberry Pi..."
 
 read -p "Do you want to update the system? [Y/n]" -n 1 -r
-if [[ $REPLY !=~ ^[Nn]$ ]]
+if [[ ! $REPLY =~ ^[Nn]$ ]]
 then
 	echo "Updating packages"
 	sudo apt-get update

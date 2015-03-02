@@ -1,5 +1,5 @@
 # dashy-device
-### Scripts to make a Dashy Kiosk
+Scripts to make a Dashy Kiosk
 
 ## Installation Raspbian v2014-12-26 or newer
 See [raspbian/README.md](raspbian/README.md)

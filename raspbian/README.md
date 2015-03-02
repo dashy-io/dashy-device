@@ -1,3 +1,6 @@
+## Pre-requisites
+Raspbian v2014-12-26 or newer
+
 ## Installation Raspbian, aka How to make a Dashy Kiosk
 
 - Clone this project on the Raspberry PI to the home directory

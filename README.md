@@ -6,3 +6,7 @@ See [raspbian/README.md](raspbian/README.md)
 
 ## Installation Ubuntu 14.04 LTS
 See [ubuntu/README.md](ubuntu/README.md)
+
+### Credits
+
+- Owner: [Marco Bettiolo](http://github.com/bettiolo)

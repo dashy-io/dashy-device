@@ -13,8 +13,8 @@
   raspbian/install.sh
   ```
   
-- If your wifi is unstable, install the script that ensures you wifi is connected:
-  http://rpi.tnet.com/project/scripts/wifi_check
+- If your wifi is unstable, install the [script that ensures your wifi is connected](http://rpi.tnet.com/project/scripts/wifi_check):
+  
 
 - Reboot the Raspberry PI
 

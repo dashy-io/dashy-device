@@ -4,4 +4,4 @@
 See [raspbian/README.md](raspbian/README.md)
 
 ## Installation Ubuntu 14.04 LTS
-See [raspbian/README.md](raspbian/README.md)
+See [ubuntu/README.md](ubuntu/README.md)

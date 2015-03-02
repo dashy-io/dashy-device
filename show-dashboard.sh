@@ -58,10 +58,8 @@ printf "OK\r\n"
 echo "Automatically hiding the mouse cursor"
 unclutter -idle 0.5 &
 
-BROWSER=""
 command -v chromium > /dev/null 2>&1 && BROWSER=chromium
 command -v google-chrome-stable > /dev/null 2>&1 && BROWSER=google-chrome-stable
-
 if [ -n "$BROWSER" ]; then
   echo "Running ${BROWSER} on primary screen"
   google-chrome-stable --incognito --no-first-run --start-fullscreen --window-position=0,0 --user-data-dir="$(mktemp -d)" ${DASHBOARD1_URL} 2> /dev/null &

@@ -1,3 +1,5 @@
+echo "Installing on Ubuntu..."
+
 if [ ! command -v google-chrome-stable >/dev/null 2>&1 ]; then
 	echo "Installing Dashy dependency: google-chrome-stable"
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -5,10 +7,7 @@ if [ ! command -v google-chrome-stable >/dev/null 2>&1 ]; then
 	sudo apt-get update
 	sudo apt-get install google-chrome-stable
 fi
-if [ ! command -v uuidgen >/dev/null 2>&1 ]; then
-	echo "Installing Dashy dependency: uuid-runtime"
-	sudo apt-get install uuid-runtime
-fi
+
 if [ ! command -v unclutter >/dev/null 2>&1 ]; then
 	echo "Installing Dashy dependency: unclutter"
 	sudo apt-get install unclutter
@@ -31,6 +30,7 @@ if [ ! -f ~/.config/autostart/dashy.desktop ]; then
 	ln -s "$(pwd)/dashy.desktop" ~/.config/autostart/dashy.desktop
 fi
 
+echo "Done."
 # sudo apt install --no-install-recommends openbox
 
 #sudo install -b -m 755 /dev/stdin /opt/kiosk.sh << EOF

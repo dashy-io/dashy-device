@@ -1,4 +1,4 @@
 xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.
 xset s noblank     # don't blank the video device
-@bash -c '~/dashy-device/show-dashboard.sh;$SHELL'
+@lxterm -e "bash -c '~/dashy-device/show-dashboard.sh;$SHELL'"

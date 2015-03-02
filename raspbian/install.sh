@@ -2,13 +2,16 @@
 
 echo "Installing on Raspberry Pi..."
 
-echo "Updating packages"
-sudo apt-get update
-sudo apt-get --yes upgrade
-sudo apt-get --yes dist-upgrade
-
-echo "Updating firmware"
-sudo rpi-update
+read -p "Do you want to update the system? [Y/n]" -n 1 -r
+if [[ $REPLY !=~ ^[Nn]$ ]]
+then
+	echo "Updating packages"
+	sudo apt-get update
+	sudo apt-get --yes upgrade
+	sudo apt-get --yes dist-upgrade
+	echo "Updating firmware"
+	sudo rpi-update
+fi
 
 if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
 	echo "Backing up original lightdm config to /etc/lightdm/lightdm.conf.ori"

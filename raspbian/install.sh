@@ -30,14 +30,10 @@ if [ ! -f /etc/xdg/lxsession/LXDE/autostart ]; then
 	sudo cp autostart /etc/xdg/lxsession/LXDE/autostart
 fi
 
-if [ ! command -v unclutter >/dev/null 2>&1 ]; then
-	echo "Installing Dashy dependency: unclutter"
-	sudo apt-get install unclutter
-fi
+echo "Installing Dashy dependency: unclutter"
+sudo apt-get install unclutter
 
-if [ ! command -v chromium >/dev/null 2>&1 ]; then
-	echo "Installing Dashy dependency: chromium"
-	sudo apt-get install chromium
-fi
+echo "Installing Dashy dependency: chromium"
+sudo apt-get install chromium
 
 echo "Done."

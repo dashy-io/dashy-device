@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Dashy
 Type=Application
-Exec=bash -c '~/dashy-device/show-dashboard.sh --vertical;$SHELL'
+Exec=bash -c '~/dashy-device/show-dashboard.sh;$SHELL'
 X-GNOME-Autostart-enabled=true
 Terminal=true
 Categories=Application;

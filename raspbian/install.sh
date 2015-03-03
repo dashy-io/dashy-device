@@ -2,7 +2,7 @@
 
 echo "Installing on Raspberry Pi..."
 
-read -p "Do you want to update the system? [Y/n]" -n 1 -r
+read -p "Do you want to update the system? [Y/n] " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Nn]$ ]]
 then

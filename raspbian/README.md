@@ -13,7 +13,8 @@ Raspbian v2014-12-26 or newer
 - Run the install script script 
 
   ```bash
-  raspbian/install.sh
+  cd raspbian
+  ./install.sh
   ```
   
 - If your wifi is unstable, install the [script that ensures your wifi is connected](http://rpi.tnet.com/project/scripts/wifi_check):

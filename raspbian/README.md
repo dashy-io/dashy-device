@@ -39,7 +39,7 @@ Raspbian is setting `resolv.conf` to google's DNS servers ignoring DHCP.
 To force your internal DNS servers execute:
 
 ```bash
-echo "prepend domain-name-servers 10.0.0.1, 10.0.0.2;" >> /etc/dhcp/dhclient.conf`
+echo "prepend domain-name-servers 10.0.0.1, 10.0.0.2;" >> /etc/dhcp/dhclient.conf
 ```
 
 Please replace `10.0.0.1` and `10.0.0.2` with your own servers.

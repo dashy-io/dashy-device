@@ -7,7 +7,7 @@ Raspbian v2014-12-26 or newer
 
   ```bash
   cd
-  git clone --bare https://github.com/dashy-io/dashy-device.git
+  git clone https://github.com/dashy-io/dashy-device.git
   ```
   
 - Run the install script script 

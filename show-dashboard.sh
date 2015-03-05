@@ -30,8 +30,9 @@ printf "OK\r\n"
 
 if git diff-index --quiet HEAD --; then
   printf "Updating Dashy Device... "
-  GIT_PULL=$(git pull)
-  if [ "$GIT_PULL" != "Current branch master is up to date." ]; then
+  git pull
+  NEW_GIT_VER="$(git rev-parse HEAD)"
+  if [ "$GIT_VER" != "$NEW_GIT_VER" ]; then
     printf "\r\n"
     echo "-----------------------------------"
     echo "Dashy Device updated, restarting..."
@@ -81,7 +82,7 @@ unclutter -idle 0.5 &
 command -v chromium > /dev/null 2>&1 && BROWSER=chromium
 command -v google-chrome-stable > /dev/null 2>&1 && BROWSER=google-chrome-stable
 if [ -n "$BROWSER" ]; then
-  FLAGS="--kiosk --incognito --no-first-run --noerrdialogs"
+  FLAGS="--kiosk --incognito --no-first-run --noerrdialogs --no-default-browser-check"
   echo "Running ${BROWSER} on primary screen"
   ${BROWSER} ${FLAGS} --window-position=0,0 --user-data-dir="$(mktemp -d)" ${DASHBOARD1_URL} > /dev/null 2>&1 &
   if [ -n "$DASHBOARD2_ID" ]; then

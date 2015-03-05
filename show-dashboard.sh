@@ -2,7 +2,9 @@
 DASHY_API_URL="http://api.dashy.io"
 
 GIT_VER="$(git rev-parse HEAD)"
-echo "Dashy Device rev. ${GIT_VER}"
+echo
+echo "Dashy Device (rev. ${GIT_VER})"
+echo
 
 PRIMARY_DISPLAY_WIDTH="$(xrandr | grep "*" | xargs | cut -d " " -f 1 | cut -d "x" -f 1)"
 PRIMARY_DISPLAY_HEIGHT="$(xrandr | grep "*" | xargs | cut -d " " -f 1 | cut -d "x" -f 2)"
@@ -30,7 +32,7 @@ done
 printf "OK\r\n"
 
 if git diff-index --quiet HEAD --; then
-  echo "Updating Dashy Device..."
+  printf "Updating Dashy Device... "
   GIT_PULL=$(git pull)
   if [ "$GIT_PULL" != "Current branch master is up to date." ]; then
     echo "-----------------------------------"
@@ -39,7 +41,7 @@ if git diff-index --quiet HEAD --; then
     ./show-dashboard.sh
     exit 0;
   fi
-  echo "Up to date."
+  printf "Up to date\r\n"
 else
   echo "---------------------------------------------------------------------"
   echo "WARNING: The local repository is not clean, cannot check for updates." >&2

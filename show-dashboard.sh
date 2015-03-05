@@ -1,4 +1,5 @@
 #!/bin/bash
+DASHY_API_URL="http://api.dashy.io"
 
 GIT_VER="$(git rev-parse HEAD)"
 echo "Dashy Device rev. ${GIT_VER}"
@@ -21,8 +22,23 @@ if $MULTI_DISPLAY; then
   echo "Secondary display height: ${SECONDARY_DISPLAY_HEIGHT}px"
 fi
 
+printf "Waiting for api.dashy.io to be available: "
+until $(curl --output /dev/null --silent --head --fail ${DASHY_API_URL}/status); do
+    printf '.'
+    sleep 1
+done
+printf "OK\r\n"
+
+echo "Updating Dashy Device..."
+GIT_PULL=$(git pull)
+if [ "$GIT_PULL" == "Current branch master is up to date." ]; then
+  echo "Dashy Device updated, restarting..."
+  ./show-dashboard.sh
+  exit 0;
+fi
+echo "Up to date."
+
 if [ ! -f ~/.dashy ]; then
-  DASHY_API_URL="http://api.dashy.io"
   DASHBOARD1_ID=$(curl -s -X POST -H "Accept: application/json" "${DASHY_API_URL}/dashboards" | grep -Po '\"id\":\"\K[\w-]+')
   echo "Initialising ~/.dashy config..."
   echo "DASHY_CLIENT_URL=\"http://client.dashy.io\"" >> ~/.dashy
@@ -50,13 +66,6 @@ echo "Dashboard 1 URL: ${DASHBOARD1_URL}"
 if [ -n "$DASHBOARD2_ID" ]; then
   echo "Dashboard 2 URL: ${DASHBOARD2_URL}"
 fi
-
-printf "Waiting for api.dashy.io to be available: "
-until $(curl --output /dev/null --silent --head --fail ${DASHY_API_URL}/status); do
-    printf '.'
-    sleep 1
-done
-printf "OK\r\n"
 
 echo "Automatically hiding the mouse cursor"
 unclutter -idle 0.5 &

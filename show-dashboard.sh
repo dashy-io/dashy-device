@@ -15,11 +15,9 @@ else
   MULTI_DISPLAY=false
 fi
 
-echo "Primary display width: ${PRIMARY_DISPLAY_WIDTH}px"
-echo "Primary display height: ${PRIMARY_DISPLAY_HEIGHT}px"
+echo "Primary display: ${PRIMARY_DISPLAY_WIDTH}x${PRIMARY_DISPLAY_HEIGHT}"
 if $MULTI_DISPLAY; then
-  echo "Secondary display width: ${SECONDARY_DISPLAY_WIDTH}px"
-  echo "Secondary display height: ${SECONDARY_DISPLAY_HEIGHT}px"
+  echo "Secondary display: ${SECONDARY_DISPLAY_WIDTH}x${SECONDARY_DISPLAY_HEIGHT}"
 fi
 
 printf "Waiting for api.dashy.io to be available: "

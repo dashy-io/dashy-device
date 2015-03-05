@@ -2,9 +2,7 @@
 DASHY_API_URL="http://api.dashy.io"
 
 GIT_VER="$(git rev-parse HEAD)"
-echo
 echo "Dashy Device (rev. ${GIT_VER})"
-echo
 
 PRIMARY_DISPLAY_WIDTH="$(xrandr | grep "*" | xargs | cut -d " " -f 1 | cut -d "x" -f 1)"
 PRIMARY_DISPLAY_HEIGHT="$(xrandr | grep "*" | xargs | cut -d " " -f 1 | cut -d "x" -f 2)"

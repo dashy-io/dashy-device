@@ -35,6 +35,7 @@ if git diff-index --quiet HEAD --; then
   printf "Updating Dashy Device... "
   GIT_PULL=$(git pull)
   if [ "$GIT_PULL" != "Current branch master is up to date." ]; then
+    printf "\r\n"
     echo "-----------------------------------"
     echo "Dashy Device updated, restarting..."
     echo "-----------------------------------"

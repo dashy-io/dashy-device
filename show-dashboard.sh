@@ -22,12 +22,15 @@ if $MULTI_DISPLAY; then
 fi
 
 if [ ! -f ~/.dashy ]; then
+  DASHY_API_URL="http://api.dashy.io"
+  DASHBOARD1_ID=$(curl -s -X POST -H "Accept: application/json" "${DASHY_API_URL}/dashboards" | grep -Po '\"id\":\"\K[\w-]+')
   echo "Initialising ~/.dashy config..."
-  echo "DASHY_CLIENT_URL=\"http://client.dashy.io/\"" >> ~/.dashy
-  echo "DASHY_API_URL=\"http://api.dashy.io/\"" >> ~/.dashy
-  echo "DASHBOARD1_ID=$(uuidgen)" >> ~/.dashy
+  echo "DASHY_CLIENT_URL=\"http://client.dashy.io\"" >> ~/.dashy
+  echo "DASHY_API_URL=\"${DASHY_API_URL}\"" >> ~/.dashy
+  echo "DASHBOARD1_ID=${DASHBOARD1_ID}" >> ~/.dashy
   if $MULTI_DISPLAY; then
-    echo "DASHBOARD2_ID=$(uuidgen)" >> ~/.dashy
+    DASHBOARD2_ID=$(curl -s -X POST -H "Accept: application/json" "${DASHY_API_URL}/dashboards" | grep -Po '\"id\":\"\K[\w-]+')
+    echo "DASHBOARD2_ID=${DASHBOARD2_ID}" >> ~/.dashy
     echo "DISPOSITION=horizontal" >> ~/.dashy
   fi
 else
@@ -40,8 +43,8 @@ if $MULTI_DISPLAY; then
   echo "Dashboard multi-screen disposition: ${DISPOSITION}"
 fi
 
-DASHBOARD1_URL="${DASHY_CLIENT_URL}?id=${DASHBOARD1_ID}"
-DASHBOARD2_URL="${DASHY_CLIENT_URL}?id=${DASHBOARD2_ID}"
+DASHBOARD1_URL="${DASHY_CLIENT_URL}/?id=${DASHBOARD1_ID}"
+DASHBOARD2_URL="${DASHY_CLIENT_URL}/?id=${DASHBOARD2_ID}"
 
 echo "Dashboard 1 URL: ${DASHBOARD1_URL}"
 if [ -n "$DASHBOARD2_ID" ]; then
@@ -49,7 +52,7 @@ if [ -n "$DASHBOARD2_ID" ]; then
 fi
 
 printf "Waiting for api.dashy.io to be available: "
-until $(curl --output /dev/null --silent --head --fail ${DASHY_API_URL}status); do
+until $(curl --output /dev/null --silent --head --fail ${DASHY_API_URL}/status); do
     printf '.'
     sleep 1
 done

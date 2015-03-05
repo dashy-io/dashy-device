@@ -29,14 +29,22 @@ until $(curl --output /dev/null --silent --head --fail ${DASHY_API_URL}/status);
 done
 printf "OK\r\n"
 
-echo "Updating Dashy Device..."
-GIT_PULL=$(git pull)
-if [ "$GIT_PULL" == "Current branch master is up to date." ]; then
-  echo "Dashy Device updated, restarting..."
-  ./show-dashboard.sh
-  exit 0;
+if git diff-index --quiet HEAD --; then
+  echo "Updating Dashy Device..."
+  GIT_PULL=$(git pull)
+  if [ "$GIT_PULL" != "Current branch master is up to date." ]; then
+    echo "-----------------------------------"
+    echo "Dashy Device updated, restarting..."
+    echo "-----------------------------------"
+    ./show-dashboard.sh
+    exit 0;
+  fi
+  echo "Up to date."
+else
+  echo "---------------------------------------------------------------------"
+  echo "WARNING: The local repository is not clean, cannot check for updates." >&2
+  echo "---------------------------------------------------------------------"
 fi
-echo "Up to date."
 
 if [ ! -f ~/.dashy ]; then
   DASHBOARD1_ID=$(curl -s -X POST -H "Accept: application/json" "${DASHY_API_URL}/dashboards" | grep -Po '\"id\":\"\K[\w-]+')

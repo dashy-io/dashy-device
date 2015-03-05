@@ -1,5 +1,6 @@
 #!/bin/bash
 DASHY_API_URL="http://api.dashy.io"
+DASHY_VIEWER_URL="http://view.dashy.io"
 
 GIT_VER="$(git rev-parse HEAD)"
 echo "Dashy Device (rev. ${GIT_VER})"
@@ -48,7 +49,7 @@ fi
 if [ ! -f ~/.dashy ]; then
   DASHBOARD1_ID=$(curl -s -X POST -H "Accept: application/json" "${DASHY_API_URL}/dashboards" | grep -Po '\"id\":\"\K[\w-]+')
   echo "Initialising ~/.dashy config..."
-  echo "DASHY_CLIENT_URL=\"http://client.dashy.io\"" >> ~/.dashy
+  echo "DASHY_VIEWER_URL=\"${DASHY_VIEWER_URL}\"" >> ~/.dashy
   echo "DASHY_API_URL=\"${DASHY_API_URL}\"" >> ~/.dashy
   echo "DASHBOARD1_ID=${DASHBOARD1_ID}" >> ~/.dashy
   if $MULTI_DISPLAY; then
@@ -66,8 +67,8 @@ if $MULTI_DISPLAY; then
   echo "Dashboard multi-screen disposition: ${DISPOSITION}"
 fi
 
-DASHBOARD1_URL="${DASHY_CLIENT_URL}/?id=${DASHBOARD1_ID}"
-DASHBOARD2_URL="${DASHY_CLIENT_URL}/?id=${DASHBOARD2_ID}"
+DASHBOARD1_URL="${DASHY_VIEWER_URL}/?id=${DASHBOARD1_ID}"
+DASHBOARD2_URL="${DASHY_VIEWER_URL}/?id=${DASHBOARD2_ID}"
 
 echo "Dashboard 1 URL: ${DASHBOARD1_URL}"
 if [ -n "$DASHBOARD2_ID" ]; then

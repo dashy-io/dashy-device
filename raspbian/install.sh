@@ -27,6 +27,14 @@ if [ ! -f /etc/xdg/lxsession/LXDE-pi/autostart.ori ]; then
 	sudo mv /etc/xdg/lxsession/LXDE-pi/autostart /etc/xdg/lxsession/LXDE-pi/autostart.ori
 fi
 
+if [ ! -f /etc/crontab.ori ]; then
+	echo "Backing up original crontab to /etc/crontab.ori"
+	sudo mv /etc/crontab /etc/crontab.ori
+fi
+
+echo "Configuring crontab to automatically reboot device once per day"
+sudo cp contab /etc/crontab
+
 echo "Configuring LXDE-pi to hide the mouse cursor, disable screen blanking and start the browser..."
 sudo cp autostart /etc/xdg/lxsession/LXDE-pi/autostart
 

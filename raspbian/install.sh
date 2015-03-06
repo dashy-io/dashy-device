@@ -14,6 +14,12 @@ then
 	sudo rpi-update
 fi
 
+echo "Installing Dashy dependency: unclutter"
+sudo apt-get --yes install unclutter
+
+echo "Installing Dashy dependency: chromium"
+sudo apt-get --yes install chromium
+
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 pushd ${DIR}
 
@@ -38,15 +44,9 @@ if [ ! -f /etc/crontab.ori ]; then
 	sudo mv /etc/crontab /etc/crontab.ori
 fi
 
-popd
-
 echo "Configuring crontab to automatically reboot device once per day"
 sudo cp crontab /etc/crontab
 
-echo "Installing Dashy dependency: unclutter"
-sudo apt-get --yes install unclutter
-
-echo "Installing Dashy dependency: chromium"
-sudo apt-get --yes install chromium
+popd
 
 echo "Done."

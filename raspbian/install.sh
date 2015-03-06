@@ -33,7 +33,7 @@ if [ ! -f /etc/crontab.ori ]; then
 fi
 
 echo "Configuring crontab to automatically reboot device once per day"
-sudo cp contab /etc/crontab
+sudo cp crontab /etc/crontab
 
 echo "Configuring LXDE-pi to hide the mouse cursor, disable screen blanking and start the browser..."
 sudo cp autostart /etc/xdg/lxsession/LXDE-pi/autostart

@@ -21,7 +21,7 @@ echo "Installing Dashy dependency: chromium"
 sudo apt-get --yes install chromium
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-pushd ${DIR}
+pushd ${DIR} > /dev/null
 
 if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
 	echo "Backing up original lightdm config to /etc/lightdm/lightdm.conf.ori"
@@ -47,6 +47,6 @@ fi
 echo "Configuring crontab to automatically reboot device once per day"
 sudo cp crontab /etc/crontab
 
-popd
+popd > /dev/null
 
 echo "Done."

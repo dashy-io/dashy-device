@@ -3,12 +3,12 @@ DASHY_API_URL="http://api.dashy.io"
 DASHY_VIEWER_URL="http://view.dashy.io"
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-pushd ${DIR}
+pushd ${DIR} > /dev/null
 
 GIT_VER="$(git rev-parse HEAD)"
 echo "Dashy Device (rev. ${GIT_VER})"
 
-popd
+popd > /dev/null
 
 PRIMARY_DISPLAY_WIDTH="$(xrandr | grep "*" | xargs | cut -d " " -f 1 | cut -d "x" -f 1)"
 PRIMARY_DISPLAY_HEIGHT="$(xrandr | grep "*" | xargs | cut -d " " -f 1 | cut -d "x" -f 2)"
@@ -33,7 +33,7 @@ until $(curl --output /dev/null --silent --head --fail ${DASHY_API_URL}/status);
 done
 printf "OK\r\n"
 
-pushd ${DIR}
+pushd ${DIR} > /dev/null
 
 if git diff-index --quiet HEAD --; then
   printf "Updating Dashy Device... "
@@ -54,7 +54,7 @@ else
   echo "---------------------------------------------------------------------"
 fi
 
-popd
+popd > /dev/null
 
 if [ ! -f ~/.dashy ]; then
   DASHBOARD1_ID=$(curl -s -X POST -H "Accept: application/json" "${DASHY_API_URL}/dashboards" | grep -Po '\"id\":\"\K[\w-]+')

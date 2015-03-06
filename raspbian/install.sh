@@ -14,6 +14,9 @@ then
 	sudo rpi-update
 fi
 
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+pushd ${DIR}
+
 if [ ! -f /etc/lightdm/lightdm.conf.ori ]; then
 	echo "Backing up original lightdm config to /etc/lightdm/lightdm.conf.ori"
 	sudo mv /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.ori
@@ -34,6 +37,8 @@ if [ ! -f /etc/crontab.ori ]; then
 	echo "Backing up original crontab to /etc/crontab.ori"
 	sudo mv /etc/crontab /etc/crontab.ori
 fi
+
+popd
 
 echo "Configuring crontab to automatically reboot device once per day"
 sudo cp crontab /etc/crontab

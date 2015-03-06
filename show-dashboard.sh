@@ -45,6 +45,7 @@ if git diff-index --quiet HEAD --; then
     echo "Dashy Device updated, restarting..."
     echo "-----------------------------------"
     ./show-dashboard.sh
+    popd > /dev/null
     exit 0;
   fi
   printf "Up to date\r\n"
